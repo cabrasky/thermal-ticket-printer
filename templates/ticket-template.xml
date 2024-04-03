@@ -1,0 +1,36 @@
+<!DOCTYPE ticket SYSTEM "ticket-receipt.dtd">
+<ticket width="32">
+    <alignment alignment="CENTER">
+        <img src="templates/resources/logo.png"/>
+        <text underline="true" bold="true">Store Name</text>
+        <linebreak/>
+        <text>123 Main Street, City</text>
+        <linebreak/>
+        <text>Date: 2024-01-30</text>
+    </alignment>
+    <linebreak/>
+
+    <table>
+        <tr>
+            <td width=".4">Item</td>
+            <td width=".2">Qty</td>
+            <td>Price</td>
+        </tr>
+        <tr>
+            <td width=".4" alignment="LEFT">Item 1</td>
+            <td width=".2" alignment="RIGHT">2</td>
+            <td alignment="RIGHT">10.99</td>
+        </tr>
+        <tr>
+            <td width=".4" alignment="LEFT">Item 2</td>
+            <td width=".2" alignment="RIGHT">1</td>
+            <td alignment="RIGHT">5.99</td>
+        </tr>
+    </table>
+    <linebreak/>
+
+    <text bold="true">Total: 16.98€</text>
+    <linebreak/>
+
+    <text>Thank you for shopping with us!</text>
+</ticket>

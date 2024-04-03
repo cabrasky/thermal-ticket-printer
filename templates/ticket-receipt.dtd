@@ -1,0 +1,59 @@
+<!ELEMENT CommonElements (text | img | table | linebreak | cut | beep | code | #PCDATA)*>
+
+        <!ELEMENT text (#PCDATA)>
+        <!ATTLIST text
+                underline (true | false) "false"
+                bold (true | false) "false"
+                special (none | doubleH | doubleW | quad) "none"
+                font (A|B) #IMPLIED
+                textHeight CDATA #IMPLIED
+                textWidth CDATA #IMPLIED
+                >
+
+        <!ELEMENT table (tr)*>
+        <!ELEMENT tr (td)*>
+        <!ELEMENT td (#PCDATA)>
+        <!ATTLIST td
+                alignment (LEFT | CENTER | RIGHT) #IMPLIED
+                bold (true | false) "false"
+                width CDATA #IMPLIED
+                cols CDATA #IMPLIED
+                >
+
+        <!ELEMENT img EMPTY>
+        <!ATTLIST img
+                src CDATA #REQUIRED
+                >
+
+        <!ELEMENT code EMPTY>
+        <!ATTLIST code
+                type (QR | Code128) #REQUIRED
+                value CDATA #REQUIRED
+                >
+
+        <!ELEMENT linebreak EMPTY>
+        <!ELEMENT line EMPTY>
+        <!ATTLIST line
+                char CDATA #IMPLIED
+                >
+
+        <!ELEMENT cut EMPTY>
+        <!ATTLIST cut
+                vertical CDATA #IMPLIED
+                >
+        <!ELEMENT beep EMPTY>
+
+        <!ELEMENT alignment (text | img | table | linebreak | cut | beep | code | invert | alignment)*>
+        <!ATTLIST alignment
+                alignment (LEFT | CENTER | RIGHT) #REQUIRED
+                >
+
+        <!ELEMENT invert (text | img | table | linebreak | cut | beep | code | invert | alignment)*>
+        <!ATTLIST invert
+                invert (true | false) #REQUIRED
+                >
+
+        <!ELEMENT ticket (text | img | table | linebreak | cut | beep | code | invert | alignment)*>
+        <!ATTLIST ticket
+                width CDATA #REQUIRED
+                >
