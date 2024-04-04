@@ -26,15 +26,12 @@ npm install thermal-ticket-printer
 
    ```typescript
    const ticketData = {
-       current_date: '2024-01-25',
-       customer_name: 'John Doe',
-       customer_email: 'john.doe@example.com',
-       items: [
-           { name: 'Item 1', quantity: 2, price: 10.99 },
-           { name: 'Item 2', quantity: 1, price: 5.99 },
-           // Add more items as needed
-       ],
-       total_amount: 0
+       current_date: '2024-04-03',
+        items: [
+            { name: 'Item 1', quantity: 2, price: 10.99 },
+            { name: 'Item 2', quantity: 1, price: 5.99 },
+        ],
+        total_amount: 27.97,
    };
    ```
 
@@ -79,9 +76,7 @@ The XML template defines the structure of the thermal ticket. It follows a speci
       <img src="templates/resources/logo.png"/>
       <text underline="true" bold="true">Store Name</text>
       <linebreak/>
-      <text>123 Main Street, City</text>
-      <linebreak/>
-      <text>Date: 2024-01-30</text>
+      <text>Date: {{ current_date }}</text>
    </alignment>
    <linebreak/>
 
@@ -91,20 +86,17 @@ The XML template defines the structure of the thermal ticket. It follows a speci
          <td width=".2">Qty</td>
          <td>Price</td>
       </tr>
+      {{#items}}
       <tr>
-         <td width=".4" alignment="LEFT">Item 1</td>
-         <td width=".2" alignment="RIGHT">2</td>
-         <td alignment="RIGHT">10.99</td>
+         <td width=".4" alignment="LEFT">{{ name }}</td>
+         <td width=".2" alignment="RIGHT">{{ quantity }}</td>
+         <td alignment="RIGHT">{{ price }}</td>
       </tr>
-      <tr>
-         <td width=".4" alignment="LEFT">Item 2</td>
-         <td width=".2" alignment="RIGHT">1</td>
-         <td alignment="RIGHT">5.99</td>
-      </tr>
+      {{/items}}
    </table>
    <linebreak/>
 
-   <text bold="true">Total: 16.98€</text>
+   <text bold="true">Total: {{ total_amount }}€</text>
    <linebreak/>
 
    <text>Thank you for shopping with us!</text>
@@ -121,6 +113,8 @@ The package includes sample files to help you get started:
 - `templates/ticket-template.xml`: This file is an example XML template for a thermal ticket.
 
 You can use these sample files as templates for creating your own thermal tickets. To access them, install the package and navigate to the `templates` directory in the installed package directory.
+
+There is also the full TS + XML sample files in the folder `example` to test rapidly the config
 
 ## License
 

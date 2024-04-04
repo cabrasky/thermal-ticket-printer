@@ -4,9 +4,7 @@
         <img src="templates/resources/logo.png"/>
         <text underline="true" bold="true">Store Name</text>
         <linebreak/>
-        <text>123 Main Street, City</text>
-        <linebreak/>
-        <text>Date: 2024-01-30</text>
+        <text>Date: {{ current_date }}</text>
     </alignment>
     <linebreak/>
 
@@ -16,20 +14,17 @@
             <td width=".2">Qty</td>
             <td>Price</td>
         </tr>
+        {{#items}}
         <tr>
-            <td width=".4" alignment="LEFT">Item 1</td>
-            <td width=".2" alignment="RIGHT">2</td>
-            <td alignment="RIGHT">10.99</td>
+            <td width=".4" alignment="LEFT">{{ name }}</td>
+            <td width=".2" alignment="RIGHT">{{ quantity }}</td>
+            <td alignment="RIGHT">{{ price }}</td>
         </tr>
-        <tr>
-            <td width=".4" alignment="LEFT">Item 2</td>
-            <td width=".2" alignment="RIGHT">1</td>
-            <td alignment="RIGHT">5.99</td>
-        </tr>
+        {{/items}}
     </table>
     <linebreak/>
 
-    <text bold="true">Total: 16.98€</text>
+    <text bold="true">Total: {{ total_amount }}€</text>
     <linebreak/>
 
     <text>Thank you for shopping with us!</text>

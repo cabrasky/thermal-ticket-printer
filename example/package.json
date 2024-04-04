@@ -1,0 +1,16 @@
+{
+  "name": "example-thermal-ticket-printer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.ts",
+  "scripts": {
+    "dev": "ts-node src/main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "thermal-ticket-printer": "^0.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}

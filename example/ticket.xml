@@ -1,0 +1,31 @@
+<!DOCTYPE ticket SYSTEM "node_modules/thermal-ticket-printer/templates/ticket-receipt.dtd">
+<ticket width="32">
+    <alignment alignment="CENTER">
+        <img src="node_modules/thermal-ticket-printer/templates/resources/logo.png"/>
+        <text underline="true" bold="true">Store Name</text>
+        <linebreak/>
+        <text>Date: {{ current_date }}</text>
+    </alignment>
+    <linebreak/>
+
+    <table>
+        <tr>
+            <td width=".4" alignment="LEFT">Item</td>
+            <td width=".1" alignment="LEFT">Qty</td>
+            <td width=".1" alignment="LEFT">Price</td>
+        </tr>
+        {{#items}}
+        <tr>
+            <td width=".4" alignment="LEFT">{{ name }}</td>
+            <td width=".1" alignment="LEFT">{{ quantity }}</td>
+            <td alignment="LEFT">{{ price }}</td>
+        </tr>
+        {{/items}}
+    </table>
+    <linebreak/>
+
+    <text bold="true">Total: {{ total_amount }}</text>
+    <linebreak/>
+
+    <text>Thank you for shopping with us!</text>
+</ticket>
