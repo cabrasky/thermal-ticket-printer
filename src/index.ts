@@ -38,6 +38,7 @@ export class ThermalTicketPrinter {
             verticalTabAmount: 1
         });
         await this.printer.execute();
+        await this.printer.clear();
     }
 
     private async processElement(element: Element | null | undefined): Promise<void> {
