@@ -29,9 +29,10 @@ const fs = __importStar(require("fs"));
 const mustache_1 = require("mustache");
 const xml_js_1 = require("xml-js");
 class ThermalTicketPrinter {
-    constructor(templatePath, printerInterface) {
+    constructor(templatePath, printerInterface, width = 32) {
         this.templatePath = templatePath;
         this.printerInterface = printerInterface;
+        this.width = width;
         this.printer = new node_thermal_printer_1.ThermalPrinter({
             type: node_thermal_printer_1.PrinterTypes.EPSON,
             interface: printerInterface,
@@ -39,7 +40,7 @@ class ThermalTicketPrinter {
             removeSpecialCharacters: false,
             lineCharacter: '*',
             breakLine: node_thermal_printer_1.BreakLine.CHARACTER,
-            width: 32,
+            width
         });
     }
     async printTicket(data) {

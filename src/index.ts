@@ -14,7 +14,7 @@ interface ElementInfo {
 export class ThermalTicketPrinter {
     private printer: ThermalPrinter;
 
-    constructor(private templatePath: string, private printerInterface: string) {
+    constructor(private templatePath: string, private printerInterface: string, private width: number = 32) {
         this.printer = new ThermalPrinter({
             type: PrinterTypes.EPSON,
             interface: printerInterface,
@@ -22,7 +22,7 @@ export class ThermalTicketPrinter {
             removeSpecialCharacters: false,
             lineCharacter: '*',
             breakLine: BreakLine.CHARACTER,
-            width: 32,
+            width
         });
     }
 
