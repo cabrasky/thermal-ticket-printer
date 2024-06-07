@@ -14,7 +14,7 @@ interface ElementInfo {
 export class ThermalTicketPrinter {
     private printer: ThermalPrinter;
 
-    constructor(private templatePath: string, private printerInterface: string, private width: number = 32) {
+    constructor(private printerInterface: string, private width: number = 32) {
         this.printer = new ThermalPrinter({
             type: PrinterTypes.EPSON,
             interface: printerInterface,
@@ -26,8 +26,8 @@ export class ThermalTicketPrinter {
         });
     }
 
-    public async printTicket(data: Record<string, unknown>): Promise<void> {
-        const xmlTemplate: string = fs.readFileSync(this.templatePath, 'utf-8');
+    public async printTicket(templatePath: string, data: Record<string, unknown>): Promise<void> {
+        const xmlTemplate: string = fs.readFileSync(templatePath, 'utf-8');
 
         const renderedTemplate: string = render(xmlTemplate, data);
         const ticket = xml2js(renderedTemplate, { compact: false }) as Element;

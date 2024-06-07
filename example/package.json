@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "thermal-ticket-printer": "^0.1.2",
+    "thermal-ticket-printer": "^0.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   }

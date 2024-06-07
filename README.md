@@ -48,7 +48,7 @@ npm install thermal-ticket-printer
    Create an instance of `ThermalTicketPrinter` with the template path and printer interface:
 
    ```typescript
-   const printer = new ThermalTicketPrinter('path/to/your/template.xml', printerInterface);
+   const printer = new ThermalTicketPrinter(printerInterface);
    ```
 
 5. **Print the Ticket**
@@ -56,7 +56,7 @@ npm install thermal-ticket-printer
    Call the `printTicket` method of the printer instance with the ticket data:
 
    ```typescript
-   printer.printTicket(ticketData)
+   printer.printTicket('path/to/your/template.xml', ticketData)
        .then(() => {
            console.log('Ticket printed successfully.');
        })

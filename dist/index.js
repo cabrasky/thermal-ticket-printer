@@ -29,8 +29,7 @@ const fs = __importStar(require("fs"));
 const mustache_1 = require("mustache");
 const xml_js_1 = require("xml-js");
 class ThermalTicketPrinter {
-    constructor(templatePath, printerInterface, width = 32) {
-        this.templatePath = templatePath;
+    constructor(printerInterface, width = 32) {
         this.printerInterface = printerInterface;
         this.width = width;
         this.printer = new node_thermal_printer_1.ThermalPrinter({
@@ -43,8 +42,8 @@ class ThermalTicketPrinter {
             width
         });
     }
-    async printTicket(data) {
-        const xmlTemplate = fs.readFileSync(this.templatePath, 'utf-8');
+    async printTicket(templatePath, data) {
+        const xmlTemplate = fs.readFileSync(templatePath, 'utf-8');
         const renderedTemplate = (0, mustache_1.render)(xmlTemplate, data);
         const ticket = (0, xml_js_1.xml2js)(renderedTemplate, { compact: false });
         await this.processElement(ticket.elements.find((element) => { return element.type === 'element' && element.name === 'ticket'; }));

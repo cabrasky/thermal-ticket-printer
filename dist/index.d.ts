@@ -1,10 +1,9 @@
 export declare class ThermalTicketPrinter {
-    private templatePath;
     private printerInterface;
     private width;
     private printer;
-    constructor(templatePath: string, printerInterface: string, width?: number);
-    printTicket(data: Record<string, unknown>): Promise<void>;
+    constructor(printerInterface: string, width?: number);
+    printTicket(templatePath: string, data: Record<string, unknown>): Promise<void>;
     private processElement;
     private getElementInfo;
     private processText;
